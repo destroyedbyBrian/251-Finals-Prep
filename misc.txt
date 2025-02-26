@@ -1,0 +1,2 @@
+cd "C:\Users\brian\251-Finals-Prep\SectionC"
+g++ -std=c++17 Structs.cpp -o Structs.run
