@@ -71,7 +71,6 @@ std::string printBook(&Book book) {  // Pass Book object by reference -> Book& b
 }
 
 // =============  RENDITION #4 ✅  =============
-
 struct Book {
     std::string title;
     std::string author;

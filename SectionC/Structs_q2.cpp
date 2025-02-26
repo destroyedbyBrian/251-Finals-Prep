@@ -7,6 +7,7 @@
 */
 
 #include <iostream>
+#include <string>
 
 struct Book {
     std::string title;
@@ -16,7 +17,7 @@ struct Book {
 };
 
 
-=============  RENDITION #1 ❌  =============
+// =============  RENDITION #1 ❌  =============
 Book findCheapestBook(const &bookCollection[]) {  // Array size not declared
     double min = 0;
     if (bookCollection) {
@@ -103,7 +104,7 @@ int main() {
 }
 
 
-// // =============  RENDITION #3 ❌  =============
+// =============  RENDITION #3 ❌  =============
 Book findCheapestBook(const Book& (bookCollection[2])) {  // Wrong parameters 
     if (bookCollection.empty()) {  // empty() method only for vector and strings
         Book emptyBook = {" ", " ", 0, 0};
@@ -150,8 +151,115 @@ int main() {
     std::cin >> book2.price;
 
     Book bookCollection[2] = {book1, book2};
-    int cheapest = findCheapestBook(bookCollection);
+    int cheapest = findCheapestBook(bookCollection);  // Return type mismatch
 
     std::cout << bookCollection[cheapest] << std::endl;
     return 0;
 }
+
+
+// =============  RENDITION #4 ❌  =============
+Book findCheapestBook (const Book (&bookList)[2]) {
+    if (bookList.length() < 1) {  // Unnecessary when size is explicit
+        Book emptyBook = {" ", " ", 0, 0};
+        return emptyBook;
+    } else {
+        double cheapest = bookList[0].price;
+        int index = 0;
+        for (int i = 0; i < bookList.length(); i++) {  // C-style array do not have length() method
+            if (bookList[i].price < cheapest) {
+                cheapest = bookList[i].price;
+                index = i;
+            }
+        }
+        return bookList[index];
+    }
+}
+
+std::ostream& operator<<(std::ostream& oss, const Book& cheapest) {
+    oss << "Book title: " << cheapest.title << "\n"
+        << "Book author: " << cheapest.author << "\n"
+        << "Book year: " << cheapest.year << "\n"
+        << "Book price: " << cheapest.price; 
+    return oss;
+}
+
+int main() {
+    Book book1, book2;
+    std::cout << "Enter the book title: ";
+    std::cin >> book1.title;
+    std::cout << "Enter the author's name: ";
+    std::cin >> book1.author;
+    std::cout << "Enter the book year: ";
+    std::cin >> book1.year;
+    std::cout << "Enter the book price: ";
+    std::cin >> book1.price;
+
+    std::cout << "Enter the book title: ";
+    std::cin >> book2.title;
+    std::cout << "Enter the author's name: ";
+    std::cin >> book2.author;
+    std::cout << "Enter the book year: ";
+    std::cin >> book2.year;
+    std::cout << "Enter the book price: ";
+    std::cin >> book2.price;
+
+    Book bookList[2] = {book1, book2};
+    Book cheapest = findCheapestBook(bookList);
+
+    std::cout << cheapest << std::endl;
+    return 0;
+}
+
+
+// =============  RENDITION #5 ✅  =============
+Book findCheapestBook (const Book (&bookList)[2]) {
+    double cheapest = bookList[0].price;
+    int index = 0;
+    for (int i = 0; i < 2; i++) {
+        if (bookList[i].price < cheapest) {
+            cheapest = bookList[i].price;
+            index = i;
+        }
+    }
+    return bookList[index];
+}
+
+std::ostream& operator<<(std::ostream& oss, const Book& cheapest) {
+    oss << "Cheapest Book title: " << cheapest.title << "\n"
+        << "Cheapest Book author: " << cheapest.author << "\n"
+        << "Cheapest Book year: " << cheapest.year << "\n"
+        << "Cheapest Book price: " << cheapest.price; 
+    return oss;
+}
+
+int main() {
+    Book book1, book2;
+    std::cout << "Enter the book title: ";
+    std::cin >> book1.title;
+    std::cout << "Enter the author's name: ";
+    std::cin >> book1.author;
+    std::cout << "Enter the book year: ";
+    std::cin >> book1.year;
+    std::cout << "Enter the book price: ";
+    std::cin >> book1.price;
+
+    std::cout << "\n";
+
+    std::cout << "Enter the book title: ";
+    std::cin >> book2.title;
+    std::cout << "Enter the author's name: ";
+    std::cin >> book2.author;
+    std::cout << "Enter the book year: ";
+    std::cin >> book2.year;
+    std::cout << "Enter the book price: ";
+    std::cin >> book2.price;
+
+    Book bookList[2] = {book1, book2};
+    Book cheapest = findCheapestBook(bookList);
+
+    std::cout << cheapest << std::endl;
+    return 0;
+}
+
+
