@@ -9,7 +9,7 @@
 #include <sstream>
 #include <string>
 
-// RENDITION #1 ❌
+// =============  RENDITION #1 ❌  =============
 struct Book = {  // Wrong syntax
     std::string title;
     std::string author;
@@ -31,7 +31,7 @@ string printBook : Book () {  // Missing std::string
 }
 
 
-// RENDITION #2 ❌
+// =============  RENDITION #2 ❌  =============
 struct Book {
     std::string title;
     std:: string author;
@@ -46,7 +46,7 @@ string printBook() {  // std::string
 }
 
 
-// RENDITION #3 ❌
+// =============  RENDITION #3 ❌  =============
 struct Book {
     std::string title;
     std::string author;
@@ -70,8 +70,8 @@ std::string printBook(&Book book) {  // Pass Book object by reference -> Book& b
     return oss.str()
 }
 
+// =============  RENDITION #4 ✅  =============
 
-// RENDITION #4 ✅
 struct Book {
     std::string title;
     std::string author;
@@ -99,8 +99,7 @@ std::string printBook(Book& book) {
     return oss.str();
 }
 
-
-// Rendition #5: OVERLOADING ✅
+// =============  Rendition #5: OVERLOADING ✅  =============
 struct Book {
     std::string title;
     std::string author;
