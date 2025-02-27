@@ -132,6 +132,7 @@ int main() {
 
     Employee employee = createEmployee(street, city, state, zipcode, name, salary);
     std::cout << employee << std::endl;
+    return 0;
 }
 
 
@@ -198,4 +199,5 @@ int main() {
 
     Employee employee = createEmployee(street, city, state, zipcode, name, salary);
     std::cout << employee << std::endl;
+    return 0;
 }
