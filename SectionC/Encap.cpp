@@ -49,7 +49,6 @@ BankAccount::withdraw (double val) {  // Missing return type
 BankAccount::getBalance () const { return balance; }  // Missing return type
 
 
-
 // =============  RENDITION #3 ✅  =============
 #include "Encap.h"
 
