@@ -7,47 +7,47 @@
 */
 
 
-// // =============  RENDITION #1 ❌  =============
-// #ifndef BANKACCOUNT_H
-// #define BANKACCOUNT_H
+// =============  RENDITION #1 ❌  =============
+#ifndef BANKACCOUNT_H
+#define BANKACCOUNT_H
 
-// #include <string>
+#include <string>
 
-// class BankAccount {
-// private:
-//     std::string accountNumber;
-//     double balance;
-// public:
-//     BankAccount () : accountNumber(" "), balance(0) {}  // Should have nth after the bracket 
-//     BankAccount (std::string acc, double b) : accountNumber(acc), balance(b) {}
+class BankAccount {
+private:
+    std::string accountNumber;
+    double balance;
+public:
+    BankAccount () : accountNumber(" "), balance(0) {}  // Should have nth after the bracket 
+    BankAccount (std::string acc, double b) : accountNumber(acc), balance(b) {}
 
-//     void deposit (double val) {}  // Empty bodies {} should be removed
-//     void withdraw (double val) {}  // Empty bodies {} should be removed
-//     double getBalance() {}  // Empty bodies {} should be removed
-// };
+    void deposit (double val) {}  // Empty bodies {} should be removed
+    void withdraw (double val) {}  // Empty bodies {} should be removed
+    double getBalance() {}  // Empty bodies {} should be removed
+};
 
-// #endif
+#endif
 
 
-// // =============  RENDITION #2 ❌  =============
-// #ifndef BANKACCOUNT_H
-// #define BANKACCOUNT_H
+// =============  RENDITION #2 ❌  =============
+#ifndef BANKACCOUNT_H
+#define BANKACCOUNT_H
 
-// #include <string>
+#include <string>
 
-// class BankAccount {
-// private:
-//     std::string accountNumber;
-//     double balance;
-// public:
-//     BankAccount()  // Missing ;
-//     BankAccount(std::string acc, double b)  // Missing ;
-//     void deposit (double val)  // Missing ;
-//     void withdraw (double val)  // Missing ;
-//     double getBalance ()  // Missing ;, const
-// };
+class BankAccount {
+private:
+    std::string accountNumber;
+    double balance;
+public:
+    BankAccount()  // Missing ;
+    BankAccount(std::string acc, double b)  // Missing ;
+    void deposit (double val)  // Missing ;
+    void withdraw (double val)  // Missing ;
+    double getBalance ()  // Missing ;, const
+};
 
-// #endif
+#endif
 
 
 // =============  RENDITION #3 ✅  =============
