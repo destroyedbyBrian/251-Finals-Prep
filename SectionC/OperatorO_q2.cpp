@@ -42,10 +42,10 @@ public:
     Vector2D (double x, double y) : x(x), y(y) {}
 
     Vector2D operator+(const Vector2D& other) {
-        return Vector2D(x + other.x, y + other.y);  // Use commas instead of logical operator
+        return Vector2D(x + other.x, y + other.y); 
     }
     Vector2D operator-(const Vector2D& other) {
-        return Vector2D(x - other.x, y - other.y); // Use commas instead of logical operator
+        return Vector2D(x - other.x, y - other.y); 
     }
 };
 
