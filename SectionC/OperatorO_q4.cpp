@@ -28,7 +28,7 @@ int main() {
     list1 += "Hello world";
     for (const auto& msg : list1.msgList) {
         std::cout << msg << std::endl;
-    }
+    } 
     return 0;
 }
 
