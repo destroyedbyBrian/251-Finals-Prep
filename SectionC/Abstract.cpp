@@ -41,8 +41,8 @@ int main () {
     
     Animal* animals[] = {&dog, &cat, &cow};
 
-    for (int i = 0; i < 3; i++) {
-        animals[i]->makeSound();
+    for (Animal* animal: animals) {
+        animal->makeSound();
     }
 
     return 0;

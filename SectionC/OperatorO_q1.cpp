@@ -96,3 +96,31 @@ int main () {
     std::cout << "Unequal: " << isunequal << std::endl;
     return 0;
 }
+
+
+// =============  RENDITION #5 ✅  =============
+class Point {
+public:
+    int x, y;
+    Point () : x(0), y(0) {}
+    Point (int x, int y) : x(x), y(y) {}
+    bool operator==(const Point& other) const;
+    bool operator!=(const Point& other) const;
+};
+
+bool Point::operator==(const Point& other) const {  
+    return (x == other.x && y == other.y);
+}
+bool Point::operator!=(const Point& other) const {  
+    return (x != other.x || y != other.y);
+}
+
+int main () {
+    Point point1(2, 4), point2(3, 3);
+    bool isequal = point1 == point2;
+    bool isunequal = point1 != point2;
+    std::cout << std::boolalpha;
+    std::cout << "Equal: " << isequal << std::endl;
+    std::cout << "Unequal: " << isunequal << std::endl;
+    return 0;
+}

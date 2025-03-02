@@ -57,8 +57,8 @@ int main() {
     shapes[2] = new Circle(1.0);
     shapes[3] = new Rectangle(5.0, 2.0);
 
-    for (int i = 0; i < 4; i++) {
-        std::cout << "Shape " << i << " area: " << shapes[i]->getArea() << std::endl;
+    for (Shape* shape : shapes) {
+        std::cout << "Shape area: " << shape->getArea();
     }
 
     // Clean up memory
